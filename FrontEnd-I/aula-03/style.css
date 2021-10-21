@@ -1,0 +1,24 @@
+body{
+    font-family: sans-serif;
+}
+
+h2{
+    border-bottom: 1px solid black;
+    padding-bottom: 10px;
+}
+
+ul li{
+    padding:10px 0;
+}
+
+p{
+    line-height: 1.5em;
+}
+
+a{
+    padding: 10px;
+    margin-top: 20px;
+    border: 1px solid black;
+    color: blue;
+    display: inline-block;
+}
