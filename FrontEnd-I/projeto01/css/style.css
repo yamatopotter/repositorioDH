@@ -33,6 +33,17 @@ section{
     font-size: 1.2rem;
 }
 
+.text a{
+    color: #e67e22;
+    text-decoration: none;
+    transition: 0.3s ease all;
+}
+
+.text a:hover{
+    color: #e67e22;
+    text-decoration: underline;
+}
+
 .btn{
     display: inline-block;
     color: #ecf0f1;
@@ -43,7 +54,7 @@ section{
     transition: 0.3s ease all;
 }
 
-.btn::after{
+.btn::after, .btn::before{
     content: '';
     display: block;
     margin: 0 auto;
@@ -53,7 +64,7 @@ section{
     transition: 0.3s ease all;
 }
 
-.btn:hover::after{
+.btn:hover::after, .btn:hover::before{
     width:100%;
     background-color: #e67e22;
 }
@@ -79,13 +90,28 @@ section{
 .main-menu{
     display: flex;
     margin: 20px auto 0;
-    gap:36px;
+    gap:60px;
+}
+
+.main-menu .logo{
+    display: flex;
+    align-items: center;
+    font-size: 1.25rem;
+    text-decoration:none;
+    color: #fff;
+    font-weight: 200;
+}
+
+.main-menu .logo i{
+    font-size: 3rem;
+    margin-right: 10px;
 }
 
 .main-menu ul{
     display: flex;
     gap:36px;
     list-style: none;
+    align-items: center;
 }
 
 .main-menu ul a{
@@ -115,7 +141,7 @@ section{
 /* Intro */
 
 .introduction{
-    margin-top: 100px;
+    margin-top: 140px;
 }
 
 .socials{
@@ -207,6 +233,27 @@ section{
 }
 
 /* Fim Portifólio */
+
+/* Trabalhe comigo */
+
+.work-together{
+    background: linear-gradient(0deg, rgba(0,0,0,.5), rgba(0,0,0,.5)), url('../images/bg2.gif') no-repeat center center;
+    background-size: cover;
+    padding:80px 0;
+}
+
+.work-together .content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Fim trabalhe comigo */
+
+footer{
+    text-align: center;
+    font-size: 1rem !important;
+}
 
 /* keyframes */
 
