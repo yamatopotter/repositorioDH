@@ -1,0 +1,32 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.outter{
+    width: 300px;
+    height: 300px;
+    background-color: blueviolet;
+    padding: 25px;
+}
+
+.inner{
+    display: block;
+    width: 250px;
+    height: 250px;
+    background-color: coral;
+    padding:25px;
+}
+
+.left-box{
+    position: absolute;
+    right:0;
+    top:0;
+}
+
+.center-box{
+    position: fixed;
+    bottom: 0;
+    left:42.2%;
+}
