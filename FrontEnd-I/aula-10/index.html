@@ -4,21 +4,30 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
 <body>
-    <form action="http://apolloit.com.br/processar.php" method="GET">
-        <label for="name">Seu nome</label>
-        <input type="text" name="name">
-        <label for="gender">Genero</label>
-        <select name="gender">
-            <option value="Masculino">Masculino</option>
-            <option value="Feminino">Feminino</option>
-            <option value="Outros">Outros</option>
-        </select>
-        <label for="opinion">Sua Opinião</label>
-        <textarea name="opinion"></textarea>
-        <button type="submit">Enviar</button>
-    </form>
+    <header>
+        <img src="img/demo-logo-retina.png">
+    </header>
+
+    <main>
+        <p>Olá, seja bem vindo a pesquisa de satisfaçãod a Demo Company. Preencha os dados a seguir para concorrer a nossos premios que não existem.</p>
+        <form action="http://apolloit.com.br/processar.php" method="GET">
+            <label for="name">Seu nome</label>
+            <input type="text" name="name">
+            <label for="gender">Genero</label>
+            <select name="gender">
+                <option value="Masculino">Masculino</option>
+                <option value="Feminino">Feminino</option>
+                <option value="Outros">Outros</option>
+            </select>
+            <label for="opinion">Sua Opinião</label>
+            <textarea name="opinion"></textarea>
+            <button type="submit">Enviar</button>
+        </form>
+    </main>
+    
 </body>
 </html>
