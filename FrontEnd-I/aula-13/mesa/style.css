@@ -1,0 +1,48 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@keyframes ball-moviment{
+
+    0%{
+        opacity: 0;
+    }
+
+    50%{
+        transform:translate(100vw, 0);
+        opacity: 1;
+    }
+
+    100%{
+        transform:translate(0%, 0);
+        opacity: 0;
+    }
+
+}
+
+main{
+    width: 100%;
+}
+
+.ball{
+    display: block;
+    width:200px;
+    height: 200px;
+    background-color: tomato;
+    border-radius: 50%;
+    animation: ball-moviment 3s infinite;
+}
+
+.rotate{
+    transition: 1s;
+}
+
+.rotate:hover{
+    transform: rotate(180deg);
+}
+
+.btn{
+    padding:
+}

@@ -1,0 +1,53 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #0f0f0f
+}
+
+main{
+    padding: 24px;
+}
+
+.main-button{
+    color:#fff;
+    border:0;
+    padding: 24px;
+    font-size: 24px;
+    border-radius: 12px;
+    background-color: #5ac4e4;
+    transition: .3s ease all;
+}
+
+.main-button:hover{
+    background-color: #1689ac ;
+}
+
+@keyframes float{
+    0%{
+        transform: translate(0, -50px);
+    }
+    50%{
+        transform: translate(0, 50px) scale(1.5);
+        opacity: .5;
+    }
+    100%{
+        transform: translate(0, -50px);
+    }
+}
+
+.ghost{
+    font-size: 200px;
+    text-align: center;
+    display: block;
+    margin:40px 0;
+    animation: float 3s infinite;
+}
+
+p{
+    text-align:center;
+    color: #fff;
+}
