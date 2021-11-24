@@ -1,14 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Velocimetro</title>
-</head>
+<html>
 <body>
-    <main>
-        
-    </main>
+
+<span id="forca">20</span>
+
+<button onClick="increment('forca')">Incrementar</button>
+
+<button onClick="decrement('forca')">Decrementar</button>
+
+<script>
+
+
+function increment(id){
+    let i = document.getElementById(id).innerHTML;
+	document.getElementById(id).innerHTML = ++i;
+}
+
+function decrement(id){
+    let i = document.getElementById(id).innerHTML;
+	document.getElementById(id).innerHTML = --i;
+}
+</script>
+
 </body>
-</html>
+</html> 
