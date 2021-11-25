@@ -1,0 +1,35 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    grid-template-areas:
+        'main-header main-header'
+        'main-aside main-content'
+        'main-footer main-footer'
+    ;
+}
+
+header{
+    background-color: blue;
+    grid-area: main-header;
+}
+
+aside{
+    background-color: blueviolet;
+    grid-area: main-aside;
+}
+
+main{
+    background-color: burlywood;
+    grid-area: main-content;
+}
+
+footer{
+    background-color: cadetblue;
+    grid-area: main-footer;
+}
