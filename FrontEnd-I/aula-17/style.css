@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth;
+    font-size: 18px;
+    font-family: 'Lora', serif;
+}
+
+h1{
+    font-size: 3rem;
+    margin-bottom: 40px;
+}
+
+h2{
+    font-size: 2rem;
+}
+
+header{
+    position:fixed;
+    background: #efefef;
+    width: 100%;
+    padding: 20px 0;
+}
+
+header ul{
+    display: flex;
+    list-style: none;
+    gap: 32px;
+}
+
+section{
+    padding: 80px 20px;
+}
+
+.intro{
+    background: url("https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80") no-repeat center center/cover;
+    color: #fff;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.about{
+    height: 100vh;
+}
+
+.about img{
+    width: 80%;
+    margin: 40px auto 0;
+    display: block;
+}
+
+.about article{
+    display: flex;
+    gap: 20px;
+    line-height: 1.5rem;
+}
