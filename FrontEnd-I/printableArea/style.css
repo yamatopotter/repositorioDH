@@ -1,0 +1,14 @@
+@media print{
+    .print{
+        width:9cm;
+        height: 5.5cm;
+        background: black;
+    }
+}
+
+.print{
+    width:9cm;
+    height: 5.5cm;
+    background-color: black;
+    display: block;
+}
