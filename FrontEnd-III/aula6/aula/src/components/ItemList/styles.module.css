@@ -1,0 +1,10 @@
+.item_list {
+  background-color: beige;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 10px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  list-style-type: none;
+}/*# sourceMappingURL=styles.module.css.map */
