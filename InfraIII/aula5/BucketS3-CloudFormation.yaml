@@ -10,8 +10,8 @@ Parameters:
 Metadata:
   AWS::CloudFormation::Interface:
     ParametersGroup:
-      - Label:
-        default: Bucket S3
+      - Label: 
+          default: Bucket S3
     Parameters:
       - BucketName
     ParametersLabel:
