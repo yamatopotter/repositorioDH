@@ -1,9 +1,13 @@
-const Card = () =>{
+import styles from './styles.css';
+
+const Card = ({nomeCor, hexaCor, index}) =>{
     return (
-        <div className="grid-20">
-            <div className="card-cor">
-                <p>Nome da cor</p>
-                <p>Hexa da cor</p>
+        <div className="grid-20" key={index}>
+            <div className="card-cor" style={{backgroundColor: hexaCor}}>
+                <div className="text">
+                    <p>{nomeCor}</p>
+                    <p>{hexaCor}</p>
+                </div>
             </div>
         </div>
     );

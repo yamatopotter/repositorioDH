@@ -1,0 +1,13 @@
+.card-cor {
+  border-radius: 5px;
+  height: 140px;
+  display: flex;
+  align-items: flex-end;
+}
+.card-cor .text {
+  display: flex;
+  flex-direction: column;
+  background: #efefef;
+  width: 100%;
+  gap: 0;
+}/*# sourceMappingURL=styles.css.map */
