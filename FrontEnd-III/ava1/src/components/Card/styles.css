@@ -1,13 +1,22 @@
 .card-cor {
-  border-radius: 5px;
+  border-radius: 10px 10px 0 0;
   height: 140px;
   display: flex;
   align-items: flex-end;
+  margin: 20px 20px 0 20px;
 }
-.card-cor .text {
+
+.text {
   display: flex;
   flex-direction: column;
-  background: #efefef;
+  border-radius: 3px;
+  background: #dadfe1;
   width: 100%;
-  gap: 0;
+  gap: 5px;
+  padding: 5px;
+  margin-bottom: 20px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  font-family: "Titillium Web";
+  letter-spacing: 1px;
+  font-weight: 300;
 }/*# sourceMappingURL=styles.css.map */

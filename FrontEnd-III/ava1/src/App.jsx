@@ -1,6 +1,7 @@
 import {useState} from 'react'
 import Form from './components/Form';
 import Card from './components/Card';
+import styles from './assets/App.css';
 
 function App() {
   const [cores, setCores] = useState([]);
@@ -14,20 +15,26 @@ function App() {
     <div className="grid-container">
 
       <div className="grid-100">
-        <h1>Favoritos de Cores</h1>
+        <h1 className="title">Favoritos de Cores</h1>
       </div>
+      
+      <div className="grid-100 div-form">
+        <Form dataToParent={dataToParent}/>
+      </div>
+      
+      <div className="grid-100 list-card grid-parent">
+        <div className="grid-100">
+          <h2 className='subtitle'>Cores Favoritas</h2>
+        </div>
 
-      <Form dataToParent={dataToParent}/>
-
-      {/* Criar função para exibir diversos cards  */}
-
-      <ul>
         {cores.map((card, index)=>{
           return(
             <Card nomeCor={card.nomeCor} hexaCor={card.hexadecimal} key={index}/>
           );
         })}
-      </ul>
+      </div>
+
+      <span className='dark-mode'>dark</span>
     </div>
   );
 }

@@ -1,0 +1,32 @@
+.normal-input{
+    border: 1px solid green;
+    background: transparent;
+}
+
+label{
+    display: block;
+    margin-bottom: 10px;
+}
+
+input{
+    padding: 10px;
+    font-size: 1.125rem;
+    border-radius: 5px;
+    border: 0;
+    width: 100%;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    font-family: 'Titillium Web';
+    font-weight: 400;
+}
+
+.error-input{
+    border: 1px solid red;
+    background: transparent;
+}
+
+.error-message{
+    color: #cf000f;
+    font-size: 0.8rem;
+    padding: 10px 0;
+    display: block;
+}
