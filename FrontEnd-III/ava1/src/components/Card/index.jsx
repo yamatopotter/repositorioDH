@@ -1,11 +1,6 @@
-import styles from './styles.scss';
+import styles from './styles.css';
 
 const Card = ({nomeCor, hexaCor, index, removeCor, chave}) =>{
-
-    function deleteCard(i){
-        removeCor(i);
-    }
-
     return (
         <div className="grid-20 mobile-grid-50 tablet-grid-33 animate__animated animate__zoomIn" key={index}>
             <div className="card-cor" style={{backgroundColor: hexaCor}}>
@@ -13,9 +8,15 @@ const Card = ({nomeCor, hexaCor, index, removeCor, chave}) =>{
             </div>
             
             <div className="text">
-                <p>{nomeCor}</p>
-                <p>{hexaCor}</p>
-                <span onClick={() => {removeCor(chave)}}><i className="fa-solid fa-trash"></i></span>
+                <div className="grid-100 grid-parent text-holder">
+                    <div className="grid-80">
+                        <p>{nomeCor}</p>
+                        <p>{hexaCor}</p>
+                    </div>
+                    <div className="grid-20 delete-icon">
+                        <span onClick={() => {removeCor(chave)}}><i className="fa-solid fa-trash"></i></span>
+                    </div>
+                </div>
             </div>
         </div>
     );

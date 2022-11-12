@@ -1,7 +1,7 @@
 import {useState} from 'react'
 import Form from './components/Form';
 import Card from './components/Card';
-import styles from './assets/App.scss';
+import styles from './assets/App.css';
 
 function App() {
   const [cores, setCores] = useState([]);

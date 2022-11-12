@@ -1,6 +1,6 @@
 import {useState} from 'react';
 import {isHexaValido} from '../../utils';
-import styles from './styles.scss';
+import styles from './styles.css';
 
 const Form = ({dataToParent}) => {
     const [formData, setFormData] = useState({nomeCor: "", errorCor: false, hexadecimal: "", errorHexa: false});

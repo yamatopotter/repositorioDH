@@ -4,7 +4,7 @@ import App from './App'
 import './assets/reset.css';
 import './assets/unsemantic.css';
 import './assets/animate.css';
-import './assets/style.scss';
+import './assets/style.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
