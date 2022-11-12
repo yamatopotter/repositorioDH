@@ -1,6 +1,6 @@
 import {useState} from 'react';
 import {isHexaValido} from '../../utils';
-import styles from './styles.css';
+import styles from './styles.scss';
 
 const Form = ({dataToParent}) => {
     const [formData, setFormData] = useState({nomeCor: "", errorCor: false, hexadecimal: "", errorHexa: false});
@@ -27,7 +27,7 @@ const Form = ({dataToParent}) => {
         <form onSubmit={salvarCor}>
             <h2 className="subtitle">Adicionar nova cor</h2>
 
-            <div className="grid-40">
+            <div className="grid-40 tablet-grid-50">
                 <input 
                     type="text" 
                     name="nomeCor"
@@ -43,7 +43,7 @@ const Form = ({dataToParent}) => {
                 {(formData.errorCor) ? <span className="error-message">Inserir um nome com mais de 3 letras</span> : ""}
             </div>
 
-            <div className="grid-40">
+            <div className="grid-40 tablet-grid-50">
                 <input
                     type="text"
                     placeholder="Insira sua cor em Hexadecimal"

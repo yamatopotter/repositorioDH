@@ -1,14 +1,22 @@
 import {useState} from 'react'
 import Form from './components/Form';
 import Card from './components/Card';
-import styles from './assets/App.css';
+import styles from './assets/App.scss';
 
 function App() {
   const [cores, setCores] = useState([]);
 
   const dataToParent = (data) => {
-    console.log(data);
     setCores([...cores,{nomeCor: data.nomeCor, hexadecimal: data.hexadecimal}]);
+  };
+
+  const removeCor = (index) => {
+    const novasCores = cores.filter((_, i) => i !== index);
+    setCores(novasCores);
+  };
+
+  const darkMode = () => {
+    document.body.classList.toggle('darkMode');
   }
 
   return (
@@ -29,12 +37,12 @@ function App() {
 
         {cores.map((card, index)=>{
           return(
-            <Card nomeCor={card.nomeCor} hexaCor={card.hexadecimal} key={index}/>
+            <Card nomeCor={card.nomeCor} hexaCor={card.hexadecimal} key={index} removeCor={removeCor} chave={index}/>
           );
         })}
       </div>
 
-      <span className='dark-mode'>dark</span>
+      <span className='darkModeBtn' onClick={darkMode}><i class="fa-solid fa-moon"></i></span>
     </div>
   );
 }

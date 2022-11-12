@@ -1,0 +1,25 @@
+.darkMode {
+  background-color: #191e24;
+}
+.darkMode .title,
+.darkMode .subtitle {
+  color: #efefef;
+}
+.darkMode .normal-input {
+  background-color: #fff;
+}
+.darkMode .error-input {
+  background-color: #fff;
+  border-color: #ec644b;
+}
+.darkMode .darkModeBtn i {
+  background-color: #fff;
+  color: #000;
+  box-shadow: rgba(216, 216, 216, 0.3) 0px 3px 6px, rgba(216, 216, 216, 0.3) 0px 3px 6px;
+}
+.darkMode .text {
+  box-shadow: rgba(216, 216, 216, 0.3) 0px 3px 6px, rgba(216, 216, 216, 0.3) 0px 3px 6px;
+}
+.darkMode .error-message {
+  color: #ec644b;
+}/*# sourceMappingURL=style.css.map */

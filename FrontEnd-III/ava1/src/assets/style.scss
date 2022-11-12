@@ -1,0 +1,32 @@
+.darkMode{
+    background-color: #191e24; 
+
+    .title,
+    .subtitle{
+        color: #efefef;
+    }
+
+    .normal-input{
+        background-color: #fff;
+    }
+
+    .error-input{
+        background-color: #fff;
+        border-color: #ec644b;;
+    }
+
+    .darkModeBtn i{
+        background-color: #fff;
+        color: #000;
+        box-shadow: rgba(216, 216, 216, 0.3) 0px 3px 6px, rgba(216, 216, 216, 0.3) 0px 3px 6px;
+    }
+
+    .text{
+        box-shadow: rgba(216, 216, 216, 0.3) 0px 3px 6px, rgba(216, 216, 216, 0.3) 0px 3px 6px;
+    }
+
+    .error-message{
+        color:#ec644b;
+    }
+}
+

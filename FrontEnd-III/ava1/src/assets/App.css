@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400&family=Work+Sans:wght@900&display=swap");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css");
 .title {
   text-align: center;
   padding: 20px 0;
@@ -17,11 +18,17 @@
   padding: 20px 0;
 }
 
-.dark-mode {
-  width: 50px;
-  height: 50px;
+.darkModeBtn {
+  color: #fff;
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+}
+
+.darkModeBtn i {
+  padding: 15px 19px;
   border-radius: 50%;
   background-color: #0a0a0a;
-  display: block;
   color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }/*# sourceMappingURL=App.css.map */
