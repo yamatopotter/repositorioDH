@@ -3,8 +3,12 @@ import Form from './components/Form';
 import Card from './components/Card';
 import styles from './assets/App.css';
 
+import {getImgBackground, setSystemBackgroundImage} from './utils';
+
 function App() {
   const [cores, setCores] = useState([]);
+  const [darkModeTheme, setDarkModeTheme] = useState(true);
+  const [backgroundImage, setBackgroundImage] = useState("");
 
   const dataToParent = (data) => {
     setCores([...cores,{nomeCor: data.nomeCor, hexadecimal: data.hexadecimal}]);
@@ -15,8 +19,33 @@ function App() {
     setCores(novasCores);
   };
 
+  
   const darkMode = () => {
-    document.body.classList.toggle('darkMode');
+    if(darkModeTheme){
+      document.body.classList.contains("lightMode") ? document.body.classList.replace('lightMode', 'darkMode') : document.body.classList.add('darkMode');
+      setDarkModeTheme(false);
+      console.log("Dark Mode")
+    }
+    else{
+      document.body.classList.replace('darkMode', 'lightMode');
+      setDarkModeTheme(true);
+      console.log("Light Mode")
+    }
+  }
+
+  const randonBg = async () => {
+    // let linkImg;
+
+    // fetch(`https://source.unsplash.com/1600x900/`).
+    // then((response)=> {
+    //     linkImg = response.url; 
+    // });
+
+    // console.log(linkImg);
+    
+    const link = await getImgBackground();
+    setBackgroundImage(link);
+    console.log(backgroundImage);
   }
 
   return (
@@ -42,7 +71,8 @@ function App() {
         })}
       </div>
 
-      <span className='darkModeBtn' onClick={darkMode}><i class="fa-solid fa-moon"></i></span>
+      <span className='randonBgBtn' onClick={randonBg}><i className="fa-regular fa-image"></i></span>
+      <span className='darkModeBtn' onClick={darkMode}><i className="fa-solid fa-moon"></i></span>
     </div>
   );
 }

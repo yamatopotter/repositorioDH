@@ -1,8 +1,24 @@
-.darkMode{
-    background-color: #191e24; 
+.lightMode{
+    background-color: #efefef;
+    animation-name: light-background-color;
+    animation-duration: 1s;
 
     .title,
     .subtitle{
+        animation-name:light-text-color;
+        animation-duration: 1s;
+    }
+}
+
+.darkMode{    
+    background-color: #191e24;
+    animation-name: dark-background-color;
+    animation-duration: 1s;
+
+    .title,
+    .subtitle{
+        animation-name:dark-text-color;
+        animation-duration: 1s;
         color: #efefef;
     }
 
@@ -30,3 +46,28 @@
     }
 }
 
+body{
+    height: 100vh;
+}
+
+
+@keyframes light-background-color {
+    from {background-color: #191e24;}
+    to{background-color: #efefef;}
+}
+
+
+@keyframes dark-background-color {
+    from {background-color: #efefef;}
+    to{background-color: #191e24;}
+}
+
+@keyframes dark-text-color {
+    from{color: #000;}
+    to{color: #efefef;}
+}
+
+@keyframes light-text-color{
+    from{color: #efefef;}
+    to{color: #000;}
+}

@@ -29,4 +29,16 @@
 .delete-icon {
   display: flex;
   align-items: center;
+  justify-content: center;
+}
+
+.delete-btn {
+  color: #610006;
+  transition: 0.3s ease-in-out all;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+  color: #cf000f;
 }/*# sourceMappingURL=styles.css.map */

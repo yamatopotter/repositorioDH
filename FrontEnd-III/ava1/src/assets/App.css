@@ -6,12 +6,14 @@
   font-size: 3rem;
   font-family: "Work Sans";
   text-transform: uppercase;
+  color: #000;
 }
 
 .subtitle {
   margin-bottom: 20px;
   font-family: "Work Sans";
   text-transform: uppercase;
+  color: #000;
 }
 
 .div-form {
@@ -26,9 +28,24 @@
 }
 
 .darkModeBtn i {
-  padding: 15px 19px;
+  padding: 19px 21px;
   border-radius: 50%;
   background-color: #0a0a0a;
+  color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.randonBgBtn {
+  color: #fff;
+  position: absolute;
+  bottom: 100px;
+  right: 20px;
+}
+
+.randonBgBtn i {
+  padding: 19px;
+  border-radius: 50%;
+  background-color: #2d55ff;
   color: #fff;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }/*# sourceMappingURL=App.css.map */

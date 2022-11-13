@@ -1,8 +1,31 @@
+.lightMode {
+  background-color: #efefef;
+  -webkit-animation-name: light-background-color;
+          animation-name: light-background-color;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+}
+.lightMode .title,
+.lightMode .subtitle {
+  -webkit-animation-name: light-text-color;
+          animation-name: light-text-color;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+}
+
 .darkMode {
   background-color: #191e24;
+  -webkit-animation-name: dark-background-color;
+          animation-name: dark-background-color;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
 }
 .darkMode .title,
 .darkMode .subtitle {
+  -webkit-animation-name: dark-text-color;
+          animation-name: dark-text-color;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
   color: #efefef;
 }
 .darkMode .normal-input {
@@ -22,4 +45,74 @@
 }
 .darkMode .error-message {
   color: #ec644b;
+}
+
+body {
+  height: 100vh;
+}
+
+@-webkit-keyframes light-background-color {
+  from {
+    background-color: #191e24;
+  }
+  to {
+    background-color: #efefef;
+  }
+}
+
+@keyframes light-background-color {
+  from {
+    background-color: #191e24;
+  }
+  to {
+    background-color: #efefef;
+  }
+}
+@-webkit-keyframes dark-background-color {
+  from {
+    background-color: #efefef;
+  }
+  to {
+    background-color: #191e24;
+  }
+}
+@keyframes dark-background-color {
+  from {
+    background-color: #efefef;
+  }
+  to {
+    background-color: #191e24;
+  }
+}
+@-webkit-keyframes dark-text-color {
+  from {
+    color: #000;
+  }
+  to {
+    color: #efefef;
+  }
+}
+@keyframes dark-text-color {
+  from {
+    color: #000;
+  }
+  to {
+    color: #efefef;
+  }
+}
+@-webkit-keyframes light-text-color {
+  from {
+    color: #efefef;
+  }
+  to {
+    color: #000;
+  }
+}
+@keyframes light-text-color {
+  from {
+    color: #efefef;
+  }
+  to {
+    color: #000;
+  }
 }/*# sourceMappingURL=style.css.map */
