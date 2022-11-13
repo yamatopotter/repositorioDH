@@ -1,6 +1,6 @@
 .normal-input {
   border: 1px solid green;
-  background: transparent;
+  background: #fff;
 }
 
 label {
@@ -21,7 +21,6 @@ input {
 
 .error-input {
   border: 1px solid red;
-  background: transparent;
 }
 
 .error-message {

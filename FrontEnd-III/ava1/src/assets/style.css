@@ -1,5 +1,5 @@
 .lightMode {
-  background-color: #efefef;
+  background-color: rgba(239, 239, 239, 0.7);
   -webkit-animation-name: light-background-color;
           animation-name: light-background-color;
   -webkit-animation-duration: 1s;
@@ -14,7 +14,7 @@
 }
 
 .darkMode {
-  background-color: #191e24;
+  background-color: rgba(0, 0, 0, 0.8);
   -webkit-animation-name: dark-background-color;
           animation-name: dark-background-color;
   -webkit-animation-duration: 1s;
@@ -47,41 +47,37 @@
   color: #ec644b;
 }
 
-body {
-  height: 100vh;
-}
-
 @-webkit-keyframes light-background-color {
   from {
-    background-color: #191e24;
+    background-color: rgba(0, 0, 0, 0.8);
   }
   to {
-    background-color: #efefef;
+    background-color: rgba(239, 239, 239, 0.7);
   }
 }
 
 @keyframes light-background-color {
   from {
-    background-color: #191e24;
+    background-color: rgba(0, 0, 0, 0.8);
   }
   to {
-    background-color: #efefef;
+    background-color: rgba(239, 239, 239, 0.7);
   }
 }
 @-webkit-keyframes dark-background-color {
   from {
-    background-color: #efefef;
+    background-color: rgba(239, 239, 239, 0.7);
   }
   to {
-    background-color: #191e24;
+    background-color: rgba(0, 0, 0, 0.8);
   }
 }
 @keyframes dark-background-color {
   from {
-    background-color: #efefef;
+    background-color: rgba(239, 239, 239, 0.7);
   }
   to {
-    background-color: #191e24;
+    background-color: rgba(0, 0, 0, 0.8);
   }
 }
 @-webkit-keyframes dark-text-color {

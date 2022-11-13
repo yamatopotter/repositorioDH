@@ -18,7 +18,6 @@ export async function getImgBackground(){
     const serverStatus = await serverResponse.status;
 
     if (serverStatus==200){
-        setSystemBackgroundImage(imgData);
         return imgData;
     }else if(serverStatus == 404){
         alert('Oops, houve um erro')
@@ -27,6 +26,12 @@ export async function getImgBackground(){
     }
 }
 
-export function setSystemBackgroundImage(url){
-    document.body.style.background=`url(${url}) no-repeat center center/cover`;
+export function isBackgroundImage(theme, backgroundImage){
+    if(theme == 'lightMode' && backgroundImage.length > 0){
+        console.log("Background com imagem");
+        return true;
+    }
+    
+    console.log("Background sem Imagem")
+    return false;
 }

@@ -1,5 +1,9 @@
+
+$backgroundLight: rgba(239, 239, 239, .7);
+$backgroundDark: rgba(0, 0, 0, .8);
+
 .lightMode{
-    background-color: #efefef;
+    background-color: $backgroundLight;
     animation-name: light-background-color;
     animation-duration: 1s;
 
@@ -11,7 +15,7 @@
 }
 
 .darkMode{    
-    background-color: #191e24;
+    background-color: $backgroundDark;
     animation-name: dark-background-color;
     animation-duration: 1s;
 
@@ -46,20 +50,15 @@
     }
 }
 
-body{
-    height: 100vh;
-}
-
-
 @keyframes light-background-color {
-    from {background-color: #191e24;}
-    to{background-color: #efefef;}
+    from {background-color: $backgroundDark;}
+    to{background-color:$backgroundLight;}
 }
 
 
 @keyframes dark-background-color {
-    from {background-color: #efefef;}
-    to{background-color: #191e24;}
+    from {background-color:$backgroundLight;}
+    to{background-color:$backgroundDark;}
 }
 
 @keyframes dark-text-color {

@@ -42,10 +42,33 @@
     right: 20px;
 }
 
+.removeBgBtn{
+    color:#fff;
+    position: absolute;
+    bottom: 180px;
+    right: 20px;
+}
+
+.removeBgBtn i{
+    padding: 19px;
+    border-radius: 50%;
+    background-color: #cf000f;
+    color:#fff;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
 .randonBgBtn i{
     padding: 19px;
     border-radius: 50%;
     background-color: #2d55ff;
     color:#fff;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.background, .backgroundImg{
+    height: 100vh;
+}
+
+.d-none{
+    display: none;
 }
