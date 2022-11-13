@@ -62,7 +62,7 @@ function App() {
           </div>
 
           <span className={(websiteTheme.bgImage) ? 'removeBgBtn' : 'd-none'} onClick={removeBgBtn}><i className="fa-regular fa-image"></i></span>
-          <span className='randonBgBtn' onClick={randonBg}><i className="fa-regular fa-image"></i></span>
+          <span className='randonBgBtn' onClick={randonBg}>{(websiteTheme.bgImage) ? <i className='fa-solid fa-arrows-rotate'></i> : <i className='fa-regular fa-image'></i>}</span>
           <span className='darkModeBtn' onClick={darkMode}><i className="fa-solid fa-moon"></i></span>
         </div>
       </div>
