@@ -1,0 +1,21 @@
+.row{
+    display: flex;
+    gap:20px;
+    margin-bottom: 20px;
+}
+
+.container-item{
+    width: 250px;
+    border: 1px solid #cacaca;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.container-item img{
+    width: auto;
+    height: 150px;
+}
