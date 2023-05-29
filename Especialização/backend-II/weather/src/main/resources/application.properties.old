@@ -1,0 +1,13 @@
+server.port = 8085
+
+spring.application.name =  weather-service
+eureka.client.service-url.defaultZone = http://localhost:8761/eureka/
+
+message = Message to teste
+
+management.endpoints.web.exposure.include=*
+management.info.env.enabled = true
+
+info.app.name=weather-service
+info.app.description=Weather Service
+info.app.version=1.0.0

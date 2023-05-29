@@ -1,0 +1,10 @@
+server:
+  port: ${PORT:8086}
+spring:
+  config:
+    import: optional:configserver:http://localhost:8888/
+  cloud:
+    config:
+      profile: qa
+  application:
+    name : client-service
