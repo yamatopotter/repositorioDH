@@ -11,9 +11,9 @@ import java.util.List;
 @FeignClient("FILME-SERVICE")
 @LoadBalancerClient(value="FILME-SERVICE")
 public interface FilmeClient {
-    @GetMapping("/movie/genero/{genero}")
+    @GetMapping("/filme/genero/{genero}")
     List<Filme>findByGenero(@PathVariable String genero);
 
-    @GetMapping("/movie")
+    @GetMapping("/filme")
     List<Filme>findAll();
 }
