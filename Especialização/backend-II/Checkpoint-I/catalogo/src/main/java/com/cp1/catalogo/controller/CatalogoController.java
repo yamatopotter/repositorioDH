@@ -1,7 +1,7 @@
 package com.cp1.catalogo.controller;
 
+import com.cp1.catalogo.Model.Filme;
 import com.cp1.catalogo.service.CatalogoService;
-import com.cp1.filmes.entity.Filme;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

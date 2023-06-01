@@ -26,7 +26,7 @@ public class FilmeController {
         }
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/detalhes/{id}")
     public ResponseEntity<Optional<Filme>> findById(@PathVariable Long id) {
         try {
             Optional<Filme> filme = filmeService.findById(id);
@@ -37,7 +37,7 @@ public class FilmeController {
         return null;
     }
 
-    @GetMapping("genero/{genero}")
+    @GetMapping("/{genero}")
     public ResponseEntity<List<Filme>> findByGenero(@PathVariable String genero){
         try {
             List<Filme> list = filmeService.findByGenero(genero);

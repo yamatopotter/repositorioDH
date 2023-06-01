@@ -1,8 +1,8 @@
 package com.cp1.catalogo.service.impl;
 
+import com.cp1.catalogo.Model.Filme;
 import com.cp1.catalogo.service.CatalogoService;
 import com.cp1.catalogo.service.FilmeClient;
-import com.cp1.filmes.entity.Filme;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
