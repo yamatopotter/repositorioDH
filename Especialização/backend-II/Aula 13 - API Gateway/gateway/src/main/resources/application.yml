@@ -1,0 +1,21 @@
+spring:
+  config:
+    import: optional:configserver:http://localhost:8888/
+  application:
+    name: gateway-service
+  cloud:
+    config:
+      profile: oauth2
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: https://accounts.google.com
+          jwk-set-uri: https://www.googleapis.com/oauth2/v3/certs
+      client:
+        registration:
+          google:
+            client-id: 166051818425-j39k02hfvrv8dpkqqe9gv488gigl4eum.apps.googleusercontent.com
+            client-secret: GIappqLAblgnmgUA7n5_OEGb
+            scope: openid
+            redirect-uri: http://localhost:8080/login/oauth2/code/google

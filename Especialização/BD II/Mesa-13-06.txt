@@ -1,0 +1,59 @@
+1
+Album (id, idArtista, idGravadora, idGenero, nome, ano, tags, urlImgCapa)
+Artista (id, nome, urlImgPhotoPerfil)
+Genero (id, nome)
+Gravadora (id, nome)
+Musica (id, idAlbum, nome, duracao)
+
+2 - 
+use Spotify
+
+3 -
+db.artista.insertOne({_id:1, nome: "Evanescence", urlImgPhotoPerfil: "https://s2-g1.glbimg.com/FLMytieGPsqv8T2993Gfl2LMYag=/0x0:800x533/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_59edd422c0c84a879bd37670ae4f538a/internal_photos/bs/2016/W/f/VwgB3eTkexohvZXRvRDQ/evanescence.jpg"})
+
+db.genero.insertOne({_id:1, nome:"Metal Alternativo"})
+
+db.gravadora.insertOne({_id:1, nome:"Wind-up Records"})
+
+db.album.insertOne({_id:1, nome:"Fallen", gravadora: 1, genero: 1, ano: 2003, artista:1, tags:"Evanescente,emo, gótico, metal", urlImgCapa:"https://upload.wikimedia.org/wikipedia/pt/5/59/Fallen.jpg"})
+
+db.musica.insertOne({_id:1, album: 1, artista:1,nome:"Going Under", duracao:215})
+
+4 - 
+db.album.aggregate([
+  {
+    $match: { _id: 1 }
+  },
+   {
+    $lookup: {
+      from: "artista",
+      localField: "artista",
+      foreignField: "_id",
+      as: "artista"
+    }
+  },
+  {
+    $lookup: {
+      from: "genero",
+      localField: "genero",
+      foreignField: "_id",
+      as: "genero"
+    }
+  },
+  {
+    $lookup: {
+      from: "gravadora",
+      localField: "gravadora",
+      foreignField: "_id",
+      as: "gravadora"
+    }
+  },
+   {
+    $lookup: {
+      from: "musica",
+      localField: "_id",
+      foreignField: "album",
+      as: "musicas"
+    }
+  }
+]);
