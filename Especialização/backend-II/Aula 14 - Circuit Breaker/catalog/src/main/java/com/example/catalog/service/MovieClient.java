@@ -1,4 +1,4 @@
-package com.example.catalog.service.impl;
+package com.example.catalog.service;
 
 import com.example.catalog.service.dto.MovieDTO;
 import org.springframework.cloud.loadbalancer.annotation.LoadBalancerClient;
