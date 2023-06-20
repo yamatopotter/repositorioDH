@@ -1,21 +1,21 @@
 spring:
   config:
     import: optional:configserver:http://localhost:8888/
-#  cloud:
-#    config:
-#      profile: ${PROFILE:dev}
+  cloud:
+    config:
+      profile: ${PROFILE:dev}
   application:
     name : catalog-service
 
 resilience4j:
   circuitbreaker:
     instances:
-      movie:
+      movie-service:
         allowHealthIndicatorToFail: false
         registerHealthIndicator: true
         slidingWindowType: COUNT_BASED
-        slidingWindowSize: 5
-        failureRateThreshold: 50
+        slidingWindowSize: 2
+        failureRateThreshold: 10
         waitDurationInOpenState: 15000
         permittedNumberOfCallsInHalfOpenState: 3
         automaticTransitionFromOpenToHalfOpenEnabled: true
@@ -23,8 +23,9 @@ resilience4j:
     instances:
       movie-service:
         maxAttempts: 3
-        waitDuration: 10s
+        waitDuration: 100
         retryExceptions:
+          - feign.FeignException$ServiceUnavailable
           - feign.FeignException$InternalServerError
           - org.springframework.web.client.HttpServerErrorException
           - java.util.concurrent.TimeoutException
@@ -33,7 +34,10 @@ management:
   endpoints:
     web:
       exposure:
-        include: circuitbreakers,circuitsbreakerevents,health,info,actuator
-  info:
-    env:
+        include: circuitbreakers,circuitsbreakerevents,health,info
+  health:
+    circuitbreakers:
       enabled: true
+  endpoint:
+    health:
+      show-details: always

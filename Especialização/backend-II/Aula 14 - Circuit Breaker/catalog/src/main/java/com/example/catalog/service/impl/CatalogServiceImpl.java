@@ -1,6 +1,7 @@
 package com.example.catalog.service.impl;
 
 import com.example.catalog.service.CatalogService;
+import com.example.catalog.service.MovieClient;
 import com.example.catalog.service.dto.CatalogDTO;
 import com.example.catalog.service.dto.MovieDTO;
 import io.github.resilience4j.circuitbreaker.CallNotPermittedException;
@@ -18,6 +19,7 @@ public class CatalogServiceImpl implements CatalogService {
     private MovieClient movieClient;
 
     @Override
+    @CircuitBreaker(name="movie-service", fallbackMethod="getMovieFallback")
     public CatalogDTO getCatalogByGenre(String genre) {
         var dto = new CatalogDTO();
         dto.setGenre(genre);
@@ -25,14 +27,12 @@ public class CatalogServiceImpl implements CatalogService {
         return dto;
     }
 
-    @CircuitBreaker(name="movie", fallbackMethod="getMovieFallback")
-    public List<MovieDTO> getMoviesByGenre(String genre){
-        return movieClient.getMoviesByGenre(genre);
-    }
-
-    public List<MovieDTO> getMovieFallback(String genre, CallNotPermittedException e) {
+    public CatalogDTO getMovieFallback(String genre, CallNotPermittedException e) {
+        var catalog = new CatalogDTO();
+        catalog.setGenre(genre);
         var movieDTO = new MovieDTO();
-        movieDTO.setName(e.getCausingCircuitBreakerName());
-        return Arrays.asList(movieDTO);
+        movieDTO.setName("O serviço de filmes está fora do ar.");
+        catalog.setMovies(Arrays.asList(movieDTO));
+        return catalog;
     }
 }
