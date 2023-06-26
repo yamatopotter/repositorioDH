@@ -1,0 +1,29 @@
+version: '3.2'
+
+services:
+  zipkin-service:
+    image: openzipkin/zipkin:2
+    container_name: zipkin-service
+    ports:
+      - 9411:9411
+  eureka-server:
+    build: eureka
+    container_name: eureka-server
+    depends_on:
+      - zipkin-service
+    ports:
+      - 8761:8761
+  config-server:
+    build: config
+    container_name: config-server
+    depends_on:
+      - eureka-service
+    ports:
+      - 8888:8888
+  gateway-server:
+    build: gateway
+    container_name: gateway-server
+    depends_on:
+      - config-service
+    ports:
+      - 8080:8080

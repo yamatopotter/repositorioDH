@@ -1,0 +1,30 @@
+1 -db.musimundos.aggregate([{$group: {_id: "$genero", quantidadeMusicas: {$sum:1}}}]) - Total: 1297
+2 - db.musimundos.aggregate([
+  {
+    $group:
+      /**
+       * _id: The id of the group.
+       * fieldN: The first field name.
+       */
+      {
+        _id: "$genero",
+        total_musicas: {
+          $sum: 1,
+        },
+        musicas: {
+          $push: "$musica",
+        },
+      },
+  },
+])
+3 - Dentro da aba agregations, na primeira barra de pipeline onde contém um icone de pasta.
+4 - Dentro da documento selecionado 
+5 - 155.6kb
+6 - db.musimundos.find({ genero: "Metal" }).limit(5); (Não há Heavy Metal, somente Metal)
+7 - db.musimundos.find({musica: /^You/})
+8 - db.musimundos.getIndexes()
+9 - db.musimundos.find({$text:{$search: "love"}})
+10 - db.musimundos.distinct("genero")
+10 - db.musimundos.aggregate([{$group:{_id: "$genero"}}])
+
+
