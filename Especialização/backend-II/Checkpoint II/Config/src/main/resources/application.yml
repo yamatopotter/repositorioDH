@@ -7,6 +7,6 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/yamatopotter/configs
+          uri: https://github.com/yamatopotter/configs/
   zipkin:
     base-url: http://localhost:9411

@@ -17,7 +17,7 @@ public class GatewayApplication {
 	}
 
 	@Bean
-	public RestTemplate restTemplate(RestTemplateBuilder restTemplateBuilder){
-		return restTemplateBuilder.build();
+	public RestTemplateBuilder restTemplate(){
+		return new RestTemplateBuilder();
 	}
 }
