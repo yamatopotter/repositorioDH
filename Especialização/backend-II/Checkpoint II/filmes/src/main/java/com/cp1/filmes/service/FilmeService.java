@@ -1,7 +1,7 @@
-package com.cp1.series.service;
+package com.cp1.filmes.service;
 
-import com.cp1.series.entity.Filme;
-import com.cp1.series.repository.FilmeRepository;
+import com.cp1.filmes.entity.Filme;
+import com.cp1.filmes.repository.FilmeRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

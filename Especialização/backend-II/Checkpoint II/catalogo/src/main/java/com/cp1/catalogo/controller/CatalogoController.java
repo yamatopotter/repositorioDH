@@ -1,6 +1,6 @@
 package com.cp1.catalogo.controller;
 
-import com.cp1.catalogo.Model.Filme;
+import com.cp1.catalogo.Entity.Filme;
 import com.cp1.catalogo.service.CatalogoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

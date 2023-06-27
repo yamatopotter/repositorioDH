@@ -1,6 +1,6 @@
 package com.cp1.catalogo.service;
 
-import com.cp1.catalogo.Model.Filme;
+import com.cp1.catalogo.Entity.Filme;
 
 import java.util.List;
 

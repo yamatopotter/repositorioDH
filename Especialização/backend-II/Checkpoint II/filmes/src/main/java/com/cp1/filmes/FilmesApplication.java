@@ -1,4 +1,4 @@
-package com.cp1.series;
+package com.cp1.filmes;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

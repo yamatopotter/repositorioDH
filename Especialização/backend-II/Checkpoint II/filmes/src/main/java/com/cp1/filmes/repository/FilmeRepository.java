@@ -1,6 +1,6 @@
-package com.cp1.series.repository;
+package com.cp1.filmes.repository;
 
-import com.cp1.series.entity.Filme;
+import com.cp1.filmes.entity.Filme;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

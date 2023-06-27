@@ -1,0 +1,5 @@
+--INSERT INTO filme (name, genero, urlStream) VALUES ('Filme 1', "Ação", "https://urlStrem.filme1.com");
+--INSERT INTO filme (name, genero, urlStream) VALUES ("Filme 2, "Ação", "https://urlStrem.filme2.com");
+--INSERT INTO filme (name, genero, urlStream) VALUES ('Filme 3', "Drama", "https://urlStrem.filme3.com");
+--INSERT INTO filme (name, genero, urlStream) VALUES ('Filme 4', "Drama", "https://urlStrem.filme4.com");
+--INSERT INTO filme (name, genero, urlStream) VALUES ('Filme 5', "Comédia", "https://urlStrem.filme5.com");

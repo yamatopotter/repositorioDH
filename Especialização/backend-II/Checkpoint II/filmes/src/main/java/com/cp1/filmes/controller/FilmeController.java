@@ -1,7 +1,7 @@
-package com.cp1.series.controller;
+package com.cp1.filmes.controller;
 
-import com.cp1.series.entity.Filme;
-import com.cp1.series.service.FilmeService;
+import com.cp1.filmes.service.FilmeService;
+import com.cp1.filmes.entity.Filme;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
