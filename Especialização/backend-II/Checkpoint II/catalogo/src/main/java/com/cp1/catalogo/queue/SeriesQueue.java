@@ -16,8 +16,10 @@ public class SeriesQueue {
 
     @RabbitListener(queues = {"${queue.serie}"})
     public void listen(Series series){
-        if(service.findById(series.getId()).equals(null)) {
+        if(service.findById(series.getId()).isEmpty()) {
             service.addSerie(series);
+            System.out.println("Serie adicionada");
+            System.out.println(series);
         }
     }
 }

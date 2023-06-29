@@ -1,9 +1,7 @@
 package com.cp1.series.controller;
 
 import com.cp1.series.entity.Capitulos;
-import com.cp1.series.entity.Series;
 import com.cp1.series.service.CapitulosService;
-import com.cp1.series.service.SeriesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

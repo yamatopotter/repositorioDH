@@ -4,6 +4,7 @@ import com.cp1.catalogo.dto.DTOSeries;
 import com.cp1.catalogo.entity.Filme;
 import com.cp1.catalogo.service.CatalogoService;
 import com.cp1.catalogo.service.FilmeClient;
+import com.cp1.catalogo.service.SeriesClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +14,8 @@ import java.util.List;
 public class CatalogoServiceImpl implements CatalogoService {
     @Autowired
     private FilmeClient filmeClient;
+    @Autowired
+    private SeriesClient seriesClient;
 
     @Override
     public List<Filme> getFilmeByGenero(String genero) {
@@ -29,6 +32,13 @@ public class CatalogoServiceImpl implements CatalogoService {
 
     @Override
     public List<DTOSeries> getAllSeries() {
-        return null;
+        List<DTOSeries> series;
+        return series = seriesClient.findAll();
+    }
+
+    @Override
+    public List<DTOSeries> getSeriesByGenero(String genero) {
+        List<DTOSeries> series;
+        return series = seriesClient.findByGenero(genero);
     }
 }

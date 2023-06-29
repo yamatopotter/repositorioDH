@@ -8,6 +8,7 @@ import java.util.List;
 public interface CatalogoService {
     List<Filme> getFilmeByGenero(String genero);
     List<Filme> getAllFilmes();
-
     List<DTOSeries> getAllSeries();
+
+    List<DTOSeries> getSeriesByGenero(String genero);
 }

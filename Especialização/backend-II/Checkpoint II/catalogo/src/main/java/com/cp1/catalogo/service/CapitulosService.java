@@ -4,6 +4,7 @@ import com.cp1.catalogo.entity.Capitulos;
 import com.cp1.catalogo.entity.Series;
 import com.cp1.catalogo.entity.Temporadas;
 import com.cp1.catalogo.repository.CapitulosRepository;
+import com.cp1.catalogo.repository.SeriesRepository;
 import com.cp1.catalogo.repository.TemporadasRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -16,6 +17,7 @@ import java.util.Optional;
 public class CapitulosService {
     private final CapitulosRepository capitulosRepository;
     private final TemporadasRepository temporadasRepository;
+    private final SeriesRepository seriesRepository;
 
     public List<Capitulos> findAll() {
         List<Capitulos> capitulos;
@@ -43,9 +45,21 @@ public class CapitulosService {
         if (capitulo == null) {
             return Optional.of(null);
         } else {
+            if(capitulo.getId()==null){
+                Capitulos newCapitulo = capitulosRepository.saveAndFlush(
+                        new Capitulos(
+                                null,
+                                capitulo.getTemporada(),
+                                capitulo.getName(),
+                                capitulo.getNumero(),
+                                capitulo.getUrlStream()
+                        )
+                );
+                return Optional.of(newCapitulo);
+            }
             Capitulos newCapitulo = capitulosRepository.saveAndFlush(
                     new Capitulos(
-                            null,
+                            capitulo.getId(),
                             capitulo.getTemporada(),
                             capitulo.getName(),
                             capitulo.getNumero(),

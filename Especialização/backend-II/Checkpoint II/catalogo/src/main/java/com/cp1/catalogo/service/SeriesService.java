@@ -38,7 +38,7 @@ public class SeriesService {
         if(serie.isPresent()){
             return serie;
         } else {
-            return Optional.of(null);
+            return Optional.empty();
         }
     }
 
@@ -46,9 +46,20 @@ public class SeriesService {
         if (serie == null) {
             return Optional.of(null);
         } else {
+            if(serie.getId()==null){
+                Series newSeries = seriesRepository.saveAndFlush(
+                        new Series(
+                                null,
+                                serie.getName(),
+                                serie.getGenero()
+                        )
+                );
+                return Optional.of(newSeries);
+            }
+
             Series newSeries = seriesRepository.saveAndFlush(
                     new Series(
-                            null,
+                            serie.getId(),
                             serie.getName(),
                             serie.getGenero()
                     )

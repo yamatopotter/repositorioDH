@@ -23,53 +23,52 @@ import java.util.List;
 public class CatalogoController {
     @Autowired
     private CatalogoService catalogoService;
-    @Autowired
-    private FilmeService filmeService;
-    @Autowired
-    private SeriesService seriesService;
-    @Autowired
-    private TemporadasService temporadasService;
-    @Autowired
-    private CapitulosService capitulosService;
+//    @Autowired
+//    private FilmeService filmeService;
+//    @Autowired
+//    private SeriesService seriesService;
+//    @Autowired
+//    private TemporadasService temporadasService;
+//    @Autowired
+//    private CapitulosService capitulosService;
 
     @GetMapping
     private ResponseEntity<String> work(){
         return ResponseEntity.ok("It Works!");
     }
 
-    @GetMapping("/filmes")
-    public ResponseEntity<List<Filme>> getFilmes(){
-        List<Filme> filmes = filmeService.findAll();
-        return ResponseEntity.ok(filmes);
-    }
-
-    @GetMapping("/series")
-    public ResponseEntity<List<DTOSeries>> getSeries(){
-        List<Series> series = seriesService.findAll();
-
-        List<DTOSeries> seriesDto = new ArrayList<>();
-
-        for(Series serie : series){
-            List<Temporadas> temporadas = temporadasService.findBySerie(serie.getId());
-            List<DTOTemporadas> temporadaDto = new ArrayList<>();
-            for(Temporadas temporada : temporadas){
-                List<Capitulos> capitulos = capitulosService.findByTemporada(temporada.getId());
-                List<DTOCapitulos> capituloDto = new ArrayList<>();
-                for(Capitulos capitulo : capitulos) {
-                    capituloDto.add(new DTOCapitulos(capitulo.getId(), capitulo.getName(), capitulo.getNumero(), capitulo.getUrlStream()));
-                }
-
-                temporadaDto.add(new DTOTemporadas(temporada.getId(), temporada.getNumero(), capituloDto));
-                System.out.println(temporadaDto);
-            }
-
-            seriesDto.add(new DTOSeries(serie.getId(), serie.getName(), serie.getGenero(), temporadaDto));
-            System.out.println(seriesDto);
-        }
-
-
-        return ResponseEntity.ok(seriesDto);
-    }
+//    @GetMapping("/filmes")
+//    public ResponseEntity<List<Filme>> getFilmes(){
+//        List<Filme> filmes = filmeService.findAll();
+//        return ResponseEntity.ok(filmes);
+//    }
+//
+//    @GetMapping("/series")
+//    public ResponseEntity<List<DTOSeries>> getSeries(){
+//        List<Series> series = seriesService.findAll();
+//
+//        List<DTOSeries> seriesDto = new ArrayList<>();
+//
+//        for(Series serie : series){
+//            List<Temporadas> temporadas = temporadasService.findBySerie(serie.getId());
+//            List<DTOTemporadas> temporadaDto = new ArrayList<>();
+//            for(Temporadas temporada : temporadas){
+//                List<Capitulos> capitulos = capitulosService.findByTemporada(temporada.getId());
+//                List<DTOCapitulos> capituloDto = new ArrayList<>();
+//                for(Capitulos capitulo : capitulos) {
+//                    capituloDto.add(new DTOCapitulos(capitulo.getId(), capitulo.getName(), capitulo.getNumero(), capitulo.getUrlStream()));
+//                }
+//
+//                temporadaDto.add(new DTOTemporadas(temporada.getId(), temporada.getNumero(), capituloDto));
+//                System.out.println(temporadaDto);
+//            }
+//
+//            seriesDto.add(new DTOSeries(serie.getId(), serie.getName(), serie.getGenero(), temporadaDto));
+//            System.out.println(seriesDto);
+//        }
+//
+//        return ResponseEntity.ok(seriesDto);
+//    }
 
     @GetMapping("/filmes/{genero}")
     public ResponseEntity<List<Filme>> getFilmesByGenero(@PathVariable String genero){
@@ -79,31 +78,37 @@ public class CatalogoController {
 
     @GetMapping("/series/{genero}")
     public ResponseEntity<List<DTOSeries>> getSeriesByGenero(@PathVariable String genero){
-        List<Series> series = seriesService.findByGenero(genero);
-
-        List<DTOSeries> seriesDto = new ArrayList<>();
-
-        for(Series serie : series){
-            List<Temporadas> temporadas = temporadasService.findBySerie(serie.getId());
-            List<DTOTemporadas> temporadaDto = new ArrayList<>();
-            for(Temporadas temporada : temporadas){
-                List<Capitulos> capitulos = capitulosService.findByTemporada(temporada.getId());
-                List<DTOCapitulos> capituloDto = new ArrayList<>();
-                for(Capitulos capitulo : capitulos) {
-                    capituloDto.add(new DTOCapitulos(capitulo.getId(), capitulo.getName(), capitulo.getNumero(), capitulo.getUrlStream()));
-                }
-
-                temporadaDto.add(new DTOTemporadas(temporada.getId(), temporada.getNumero(), capituloDto));
-                System.out.println(temporadaDto);
-            }
-
-            seriesDto.add(new DTOSeries(serie.getId(), serie.getName(), serie.getGenero(), temporadaDto));
-            System.out.println(seriesDto);
-        }
-
-
-        return ResponseEntity.ok(seriesDto);
+        List<DTOSeries> series = catalogoService.getSeriesByGenero(genero);
+        return ResponseEntity.ok(series);
     }
+
+//    @GetMapping("/series/{genero}")
+//    public ResponseEntity<List<DTOSeries>> getSeriesByGenero(@PathVariable String genero){
+//        List<Series> series = seriesService.findByGenero(genero);
+//
+//        List<DTOSeries> seriesDto = new ArrayList<>();
+//
+//        for(Series serie : series){
+//            List<Temporadas> temporadas = temporadasService.findBySerie(serie.getId());
+//            List<DTOTemporadas> temporadaDto = new ArrayList<>();
+//            for(Temporadas temporada : temporadas){
+//                List<Capitulos> capitulos = capitulosService.findByTemporada(temporada.getId());
+//                List<DTOCapitulos> capituloDto = new ArrayList<>();
+//                for(Capitulos capitulo : capitulos) {
+//                    capituloDto.add(new DTOCapitulos(capitulo.getId(), capitulo.getName(), capitulo.getNumero(), capitulo.getUrlStream()));
+//                }
+//
+//                temporadaDto.add(new DTOTemporadas(temporada.getId(), temporada.getNumero(), capituloDto));
+//                System.out.println(temporadaDto);
+//            }
+//
+//            seriesDto.add(new DTOSeries(serie.getId(), serie.getName(), serie.getGenero(), temporadaDto));
+//            System.out.println(seriesDto);
+//        }
+//
+//
+//        return ResponseEntity.ok(seriesDto);
+//    }
     @GetMapping("/todos")
     public ResponseEntity<List<Filme>> getAllFilmes(){
         List<Filme> filmes = catalogoService.getAllFilmes();

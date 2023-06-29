@@ -17,9 +17,15 @@ public class TemporadasQueue {
 
     @RabbitListener(queues = {"${queue.temporada}"})
     public void listen(Temporadas temporadas){
-        if(seriesService.findById(temporadas.getSerie().getId()).equals(null)){
-            seriesService.addSerie(temporadas.getSerie());
+        if(service.findById(temporadas.getId()).isEmpty()){
+            if(seriesService.findById(temporadas.getSerie().getId()).isEmpty()){
+                seriesService.addSerie(temporadas.getSerie());
+                System.out.println("Serie adicionada");
+                System.out.println(temporadas.getSerie());
+            }
+            service.addTemporada(temporadas);
+            System.out.println("Temporada adicionada");
+            System.out.println(temporadas);
         }
-        service.addTemporada(temporadas);
     }
 }

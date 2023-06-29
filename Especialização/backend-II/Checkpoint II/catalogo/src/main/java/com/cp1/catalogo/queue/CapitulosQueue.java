@@ -1,6 +1,7 @@
 package com.cp1.catalogo.queue;
 
 import com.cp1.catalogo.entity.Capitulos;
+import com.cp1.catalogo.entity.Temporadas;
 import com.cp1.catalogo.service.CapitulosService;
 import com.cp1.catalogo.service.SeriesService;
 import com.cp1.catalogo.service.TemporadasService;
@@ -22,17 +23,19 @@ public class CapitulosQueue {
 
     @RabbitListener(queues = {"${queue.capitulo}"})
     public void listen(Capitulos capitulos){
-        System.out.println(capitulos);
-        Optional temporada = temporadasService.findById(capitulos.getTemporada().getId());
-        System.out.println(temporada.equals(null));
-        if(temporada == null){
-            if(seriesService.findById(capitulos.getTemporada().getSerie().getId()).equals(null)){
+        Optional<Temporadas> temporada = temporadasService.findById(capitulos.getTemporada().getId());
+        if(temporada.isEmpty()){
+            if(seriesService.findById(capitulos.getTemporada().getSerie().getId()).isEmpty()) {
                 seriesService.addSerie(capitulos.getTemporada().getSerie());
+                System.out.println("Serie adicionada");
+                System.out.println(capitulos.getTemporada().getSerie());
             }
-            else{
-                temporadasService.addTemporada(capitulos.getTemporada());
-            }
+            temporadasService.addTemporada(capitulos.getTemporada());
+            System.out.println("Temporada adicionada");
+            System.out.println(capitulos.getTemporada());
         }
         service.addCapitulo(capitulos);
+        System.out.println("Capitulo adicionado");
+        System.out.println(capitulos);
     }
 }

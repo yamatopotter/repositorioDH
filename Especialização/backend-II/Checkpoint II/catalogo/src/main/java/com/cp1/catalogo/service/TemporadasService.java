@@ -33,19 +33,28 @@ public class TemporadasService {
         if(temporadas.isPresent()){
             return temporadas;
         } else {
-            return Optional.of(null);
+            return Optional.empty();
         }
     }
-
-
 
     public Optional<Temporadas> addTemporada(Temporadas temporadas) {
         if (temporadas == null) {
             return Optional.of(null);
         } else {
+            if(temporadas.getId()==null){
+                Temporadas newTemporadas = temporadasRepository.saveAndFlush(
+                        new Temporadas(
+                                null,
+                                temporadas.getSerie(),
+                                temporadas.getNumero()
+                        )
+                );
+                return Optional.of(newTemporadas);
+            }
+
             Temporadas newTemporadas = temporadasRepository.saveAndFlush(
                     new Temporadas(
-                            null,
+                            temporadas.getId(),
                             temporadas.getSerie(),
                             temporadas.getNumero()
                     )
