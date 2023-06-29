@@ -1,7 +1,10 @@
 package com.cp1.catalogo.service;
 
-import com.cp1.series.entity.Capitulos;
-import com.cp1.series.repository.CapitulosRepository;
+import com.cp1.catalogo.entity.Capitulos;
+import com.cp1.catalogo.entity.Series;
+import com.cp1.catalogo.entity.Temporadas;
+import com.cp1.catalogo.repository.CapitulosRepository;
+import com.cp1.catalogo.repository.TemporadasRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +15,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class CapitulosService {
     private final CapitulosRepository capitulosRepository;
+    private final TemporadasRepository temporadasRepository;
 
     public List<Capitulos> findAll() {
         List<Capitulos> capitulos;
@@ -27,6 +31,12 @@ public class CapitulosService {
         } else {
             return Optional.of(null);
         }
+    }
+
+    public List<Capitulos> findByTemporada(Long id) {
+        List<Capitulos> capitulos;
+        Optional<Temporadas> temporada = temporadasRepository.findById(id);
+        return capitulos = capitulosRepository.findByTemporada(temporada.get());
     }
 
     public Optional<Capitulos> addCapitulo(Capitulos capitulo) {

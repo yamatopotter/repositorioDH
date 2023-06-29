@@ -3,6 +3,9 @@ package com.cp1.series.service;
 import com.cp1.series.entity.Series;
 import com.cp1.series.repository.SeriesRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,6 +15,10 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class SeriesService {
     private final SeriesRepository seriesRepository;
+    @Value("${queue.serie}")
+    private String queue;
+    @Autowired
+    private RabbitTemplate rabbitTemplate;
 
     public List<Series> findAll() {
         List<Series> series;
@@ -50,6 +57,7 @@ public class SeriesService {
                             serie.getGenero()
                     )
             );
+            rabbitTemplate.convertAndSend(queue, newSeries);
             return Optional.of(newSeries);
         }
     }

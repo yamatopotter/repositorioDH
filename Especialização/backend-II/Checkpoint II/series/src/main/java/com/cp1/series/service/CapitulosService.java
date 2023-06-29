@@ -3,6 +3,9 @@ package com.cp1.series.service;
 import com.cp1.series.entity.Capitulos;
 import com.cp1.series.repository.CapitulosRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,6 +15,10 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class CapitulosService {
     private final CapitulosRepository capitulosRepository;
+    @Value("${queue.capitulo}")
+    private String queue;
+    @Autowired
+    private RabbitTemplate rabbitTemplate;
 
     public List<Capitulos> findAll() {
         List<Capitulos> capitulos;
@@ -42,6 +49,7 @@ public class CapitulosService {
                             capitulo.getUrlStream()
                     )
             );
+            rabbitTemplate.convertAndSend(queue, newCapitulo);
             return Optional.of(newCapitulo);
         }
     }

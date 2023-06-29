@@ -1,8 +1,7 @@
-package com.cp1.series.repository;
+package com.cp1.catalogo.repository;
 
-import com.cp1.series.entity.Capitulos;
-import com.cp1.series.entity.Series;
-import com.cp1.series.entity.Temporadas;
+import com.cp1.catalogo.entity.Capitulos;
+import com.cp1.catalogo.entity.Temporadas;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

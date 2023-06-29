@@ -2,7 +2,9 @@ package com.cp1.series.controller;
 
 import com.cp1.series.entity.Series;
 import com.cp1.series.service.SeriesService;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,7 +17,6 @@ import java.util.Optional;
 public class SeriesController {
     @Autowired
     private SeriesService seriesService;
-
     @GetMapping
     public ResponseEntity<List<Series>> findAll() {
         try {
@@ -52,7 +53,10 @@ public class SeriesController {
         try {
             if (series != null) {
                 Optional<Series> newSerie = seriesService.addSerie(series);
-                if (newSerie.isPresent()) return new ResponseEntity<>(newSerie, HttpStatus.CREATED);
+                if (newSerie.isPresent()) {
+
+                    return new ResponseEntity<>(newSerie, HttpStatus.CREATED);
+                }
             }
         } catch (Exception e){
             return new ResponseEntity<>(HttpStatus.CONFLICT);

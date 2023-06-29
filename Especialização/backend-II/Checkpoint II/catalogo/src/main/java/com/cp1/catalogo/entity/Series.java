@@ -1,4 +1,4 @@
-package com.cp1.series.entity;
+package com.cp1.catalogo.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

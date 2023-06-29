@@ -2,7 +2,9 @@ package com.cp1.filmes.controller;
 
 import com.cp1.filmes.service.FilmeService;
 import com.cp1.filmes.entity.Filme;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -52,7 +54,9 @@ public class FilmeController {
         try {
             if (filme != null) {
                 Optional<Filme> newFilme = filmeService.addFilme(filme);
-                if (newFilme.isPresent()) return new ResponseEntity<>(newFilme, HttpStatus.CREATED);
+                if (newFilme.isPresent()) {
+                    return new ResponseEntity<>(newFilme, HttpStatus.CREATED);
+                }
             }
         } catch (Exception e){
             return new ResponseEntity<>(HttpStatus.CONFLICT);

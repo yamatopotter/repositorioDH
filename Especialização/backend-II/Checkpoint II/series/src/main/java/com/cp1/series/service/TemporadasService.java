@@ -5,6 +5,9 @@ import com.cp1.series.entity.Temporadas;
 import com.cp1.series.repository.SeriesRepository;
 import com.cp1.series.repository.TemporadasRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,6 +18,10 @@ import java.util.Optional;
 public class TemporadasService {
     private final TemporadasRepository temporadasRepository;
     private final SeriesRepository seriesRepository;
+    @Value("${queue.temporada}")
+    private String queue;
+    @Autowired
+    private RabbitTemplate rabbitTemplate;
 
     public List<Temporadas> findAll() {
         List<Temporadas> temporadas;
@@ -50,6 +57,7 @@ public class TemporadasService {
                             temporadas.getNumero()
                     )
             );
+            rabbitTemplate.convertAndSend(queue, newTemporadas);
             return Optional.of(newTemporadas);
         }
     }
@@ -58,12 +66,12 @@ public class TemporadasService {
         if (temporadas == null) {
             return Optional.of(null);
         } else {
-            Temporadas tempoaradaUpdate = new Temporadas(
+            Temporadas temporadaUpdate = new Temporadas(
                     temporadas.getId(),
                     temporadas.getSerie(),
                     temporadas.getNumero()
             );
-            return Optional.of(temporadasRepository.saveAndFlush(tempoaradaUpdate));
+            return Optional.of(temporadasRepository.saveAndFlush(temporadaUpdate));
         }
     }
 

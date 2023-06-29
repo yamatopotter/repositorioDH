@@ -1,7 +1,7 @@
-package com.cp1.series.service;
+package com.cp1.catalogo.service;
 
-import com.cp1.series.entity.Series;
-import com.cp1.series.repository.SeriesRepository;
+import com.cp1.catalogo.entity.Series;
+import com.cp1.catalogo.repository.SeriesRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,10 +15,6 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class SeriesService {
     private final SeriesRepository seriesRepository;
-    @Value("${queue.serie}")
-    private String queue;
-    @Autowired
-    private RabbitTemplate rabbitTemplate;
 
     public List<Series> findAll() {
         List<Series> series;
@@ -36,11 +32,11 @@ public class SeriesService {
     }
 
     public Optional<Series> findById(Long id) {
-        Optional<Series> filmes;
+        Optional<Series> serie;
 
-        filmes = seriesRepository.findById(id);
-        if(filmes.isPresent()){
-            return filmes;
+        serie = seriesRepository.findById(id);
+        if(serie.isPresent()){
+            return serie;
         } else {
             return Optional.of(null);
         }
@@ -57,7 +53,6 @@ public class SeriesService {
                             serie.getGenero()
                     )
             );
-            rabbitTemplate.convertAndSend(queue, newSeries);
             return Optional.of(newSeries);
         }
     }

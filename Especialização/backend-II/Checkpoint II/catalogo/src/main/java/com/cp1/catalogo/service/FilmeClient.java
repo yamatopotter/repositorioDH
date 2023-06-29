@@ -1,6 +1,6 @@
 package com.cp1.catalogo.service;
 
-import com.cp1.catalogo.Entity.Filme;
+import com.cp1.catalogo.entity.Filme;
 import org.springframework.cloud.loadbalancer.annotation.LoadBalancerClient;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;

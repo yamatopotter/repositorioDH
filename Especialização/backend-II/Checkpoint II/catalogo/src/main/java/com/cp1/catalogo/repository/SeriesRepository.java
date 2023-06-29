@@ -1,6 +1,6 @@
 package com.cp1.catalogo.repository;
 
-import com.cp1.series.entity.Series;
+import com.cp1.catalogo.entity.Series;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

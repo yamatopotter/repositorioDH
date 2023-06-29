@@ -1,9 +1,9 @@
-package com.cp1.series.service;
+package com.cp1.catalogo.service;
 
-import com.cp1.series.entity.Series;
-import com.cp1.series.entity.Temporadas;
-import com.cp1.series.repository.SeriesRepository;
-import com.cp1.series.repository.TemporadasRepository;
+import com.cp1.catalogo.entity.Series;
+import com.cp1.catalogo.entity.Temporadas;
+import com.cp1.catalogo.repository.SeriesRepository;
+import com.cp1.catalogo.repository.TemporadasRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -24,7 +24,7 @@ public class TemporadasService {
     public List<Temporadas> findBySerie(Long id) {
         List<Temporadas> temporadas;
         Optional<Series> serie = seriesRepository.findById(id);
-        return temporadas = temporadasRepository.findBySerie(serie);
+        return temporadas = temporadasRepository.findBySerie(serie.get());
     }
     public Optional<Temporadas> findById(Long id) {
         Optional<Temporadas> temporadas;

@@ -1,7 +1,7 @@
-package com.cp1.filmes.service;
+package com.cp1.catalogo.service;
 
-import com.cp1.filmes.entity.Filme;
-import com.cp1.filmes.repository.FilmeRepository;
+import com.cp1.catalogo.entity.Filme;
+import com.cp1.catalogo.repository.FilmeRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,11 +15,6 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class FilmeService {
     private final FilmeRepository filmeRepository;
-
-    @Value("${queue.filme}")
-    private String queue;
-    @Autowired
-    private RabbitTemplate rabbitTemplate;
 
     public List<Filme> findAll() {
         List<Filme> filmes;
@@ -60,8 +55,6 @@ public class FilmeService {
                             filmes.getUrlStream()
                     )
             );
-
-            rabbitTemplate.convertAndSend(queue, newFilme);
             return Optional.of(newFilme);
         }
     }

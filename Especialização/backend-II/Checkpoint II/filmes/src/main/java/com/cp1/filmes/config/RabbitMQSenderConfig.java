@@ -8,12 +8,12 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class RabbitMQSenderConfig {
 
-    @Value("${queue.mail}")
-    private String queueMail;
+    @Value("${queue.filme}")
+    private String queueFilme;
 
     @Bean
-    public Queue MailQueue() {
-        return new Queue(this.queueMail,false);
+    public Queue FilmeQueue() {
+        return new Queue(this.queueFilme,false);
     }
 
 }
