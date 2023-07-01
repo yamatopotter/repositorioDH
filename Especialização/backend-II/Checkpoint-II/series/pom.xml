@@ -93,7 +93,7 @@
 				</configuration>
 			</plugin>
 		</plugins>
-		<finalName>series-service</finalName>
+		<finalName>serie-service</finalName>
 	</build>
 
 </project>
